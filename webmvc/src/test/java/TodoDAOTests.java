@@ -31,17 +31,33 @@ public class TodoDAOTests {
         todoDAO.insert(vo);
     }
 
-@Test
+    @Test
     public void testSelectAll() throws Exception {
-    List<TodoVO>  list = todoDAO.selectAll();
-    list.forEach(System.out::println);
-}
+        List<TodoVO> list = todoDAO.selectAll();
+        list.forEach(System.out::println);
+    }
 
-@Test
+    @Test
     public void testSelectOne() throws Exception {
         TodoVO vo = todoDAO.selectOne(4L);
         System.out.println(vo);
-}
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        TodoVO vo = TodoVO.builder()
+                .tno(1L)
+                .title("Updated Title")
+                .dueDate(LocalDate.now())
+                .finished(true)
+                .build();
+        todoDAO.updateOne(vo);
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+           todoDAO.deleteOne(1L);
+    }
 
 }
 
