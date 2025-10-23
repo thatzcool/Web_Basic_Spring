@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+   ${dto.tno} ${dto.title} ${dto.dueDate} ${dto.finished}
 </body>
 </html>
