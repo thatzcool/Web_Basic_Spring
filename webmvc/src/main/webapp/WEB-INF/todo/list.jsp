@@ -6,40 +6,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
-    <title>Todo List Page</title>
+    <title>Todo List</title>
 </head>
 <body>
-  <h1>List Page </h1>
-<%--  EL(Expression Language)
-
-
-${list}
-<h3> ${1+2+3}</h3>
-<h3>${"AAA" += "BBB"}</h3>
-<h3>${"AAA".equals("AAA")}</h3>
-<h4>${list[0].tno}</h4>
-<h4>${list[0].title}</h4>
-<h4>${list[0].dueDate}</h4>--%>
+<h1>Todo List</h1>
 
 <ul>
-    <c:forEach var="dto" items="${list} ">
-        <li>${dto}</li>
+    <c:forEach items="${dtoList}" var="dto">
+        <li>
+            <span><a href="/todo/read?tno=${dto.tno}">${dto.tno}</a></span>
+            <span>${dto.title}</span>
+            <span>${dto.dueDate}</span>
+            <span>${dto.finished? "DONE": "NOT YET"}</span>
+        </li>
     </c:forEach>
-<ul>
-     <c:forEach var = "num" begin="1" end ="10">
-         <li>${num}</li>
-     </c:forEach>
-
 </ul>
-
-</ul>
-
-
-
-
 
 
 </body>
